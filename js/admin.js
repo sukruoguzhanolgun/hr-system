@@ -8,7 +8,6 @@ tabOnclick = (type) => {
   const userTab = document.getElementById("tableTabTwo");
 
   if (type == "user") {
-    console.log("SA");
     userTab.className = "tableTabTwoActive";
     userTab.children[0].className = "tabTextActive";
     appTab.className = "tableTabOne";
@@ -42,12 +41,11 @@ function saveUser() {
     pass.trim() == "" ||
     repass.trim() == ""
   ) {
-    alert("Alanları eksiksiz doldurunuz");
+    alert("Please fill all blanks!!!");
   } else {
     if (pass !== repass) {
-      alert("Şifreler eşleşmiyor !!!!");
+      alert("Passwords do not match !!!");
     } else {
-      console.log("Kayıt okdir");
       const body = {
         username: email,
         password: pass
@@ -75,10 +73,10 @@ async function saveUserRequest(body) {
     });
 
   if (addUserResponse.status == 200) {
-    alert('Kayıt başarılı.');
+    alert('Registration Successful.');
     location.href = '../admin/user_list.html'
   } else {
-    alert('Kayıt başarısız.');
+    alert('Registration failed.');
   }
 }
 
@@ -94,7 +92,6 @@ async function getAppList() {
   });
 
   const responseData = await appResponse.json();
-  console.log('data: ', appResponse);
 
   if (appResponse.status == 200) {
     responseData.length > 0 &&
@@ -103,7 +100,7 @@ async function getAppList() {
     if (appResponse.status == 401) {
       location.href = '../auth/login.html';
     } else {
-      alert('Data alınamadı!');
+      alert('Data could not be retrieved.');
     }
   }
 
@@ -168,7 +165,7 @@ renderAppList = (listData) => {
     const col7_btn = document.createElement("button");
     col7_btn.type = "button";
     col7_btn.className = "btn btn-outline-info btn-lg";
-    col7_btn.innerHTML = "Başvuruyu Sil";
+    col7_btn.innerHTML = "Delete";
     col7_btn.onclick = () => deleteAppRequest(appItem.id);
     col7.appendChild(col7_btn);
     row.appendChild(col7);
@@ -177,7 +174,6 @@ renderAppList = (listData) => {
 }
 
 async function getUserList() {
-  console.log('USER: ', user);
 
   const userResponse = await fetch('http://localhost:8080/api/user/list', {
     method: 'GET',
@@ -191,19 +187,16 @@ async function getUserList() {
     console.log('Error : ', erro);
   });
 
-  console.log('RESP: ', userResponse)
-
   if (userResponse.status == 200) {
     const responseData = await userResponse.json();
     console.log('data: ', responseData);
     responseData.length > 0 &&
       renderUsrList(responseData);
   } else {
-    console.log('response: ', userResponse);
     if (userResponse.status == 401 || userResponse.status == 403) {
       location.href = '../auth/login.html';
     } else {
-      alert('Data alınamadı!');
+      alert('Data could not be retrieved.');
     }
   }
 };
@@ -236,7 +229,7 @@ renderUsrList = (listData) => {
     const col4_btn = document.createElement("button");
     col4_btn.type = "button";
     col4_btn.className = "btn btn-outline-info btn-lg";
-    col4_btn.innerHTML = " Kullanıcıyı Sil";
+    col4_btn.innerHTML = "Delete";
     col4_btn.onclick = () => deleteUser(userItem.id);
     col4.appendChild(col4_btn);
     row.appendChild(col4);

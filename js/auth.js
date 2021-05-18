@@ -56,7 +56,7 @@ loginBtn
   : null;
 
 async function login(loginBody) {
-  console.log('istek atılıyor')
+
   const loginResponse = await fetch('http://localhost:8080/api/user/signin', {
     method: 'POST',
     mode: 'cors',
@@ -92,7 +92,7 @@ loginSuccess = (data) => {
 }
 
 loginFail = (data) => {
-  alert('Hatalı Giriş');
+  alert('Incorrect entry.');
 }
 
 async function register(registerBody) {
@@ -114,9 +114,9 @@ async function register(registerBody) {
 
     if(registerResponse.status == 200){
       const responseData = await registerResponse.json();
-      alert('Kayıt başarılı. Lütfen giriş yapın');
+      alert('Registration Successful. Please login.');
       window.location.href='login.html';
     }else{
-      alert('Kayıt başarısız.');
+      alert('Registration failed.');
     }
 }

@@ -26,7 +26,7 @@ saveButton.onclick = () => {
     languages.trim() == "" ||
     skills.trim() == ""
   ) {
-     alert('Alanları eksiksiz doldurunuz !!!');
+     alert('Fill all blanks!!!');
   }else{
     const app = {
         userDTO: {
@@ -61,13 +61,13 @@ async function sendUserApp (app){
     if (appResponse.status == 200) {
       loader.style.display = 'none';
       form.style.display = 'block';
-      alert('Başvurunuz alındı en kısa zamanda geri dönüş yapılacaktır.');
+      alert('Your application has been received. A return will be made as soon as possible.');
       localStorage.removeItem('user_info');
       window.location.href ='../auth/login.html';
     } else {
       loader.style.display = 'none';
       form.style.display = 'block';
-      alert('Başvurun başarısız. Daha önce başvurduysanız lütfen bekleyin!');
+      alert('Application failed.');
       localStorage.removeItem('user_info');
       window.location.href ='../auth/login.html';
     }

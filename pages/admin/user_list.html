@@ -14,10 +14,10 @@
     <div class="container">
         <div class="row app-header ">           
             <div onclick="tabOnclick('app')" id="tableTabOne" class="tableTabOne" >
-              <h1 class="tabText">BAŞVURULAR</h1>  
+              <h1 class="tabText">APPLICATIONS</h1>  
             </div>
             <div  onclick="tabOnclick('user')" id="tableTabTwo" class='tableTabTwoActive' >
-                <h1 class="tabTextActive">KULLANICILAR</h1>  
+                <h1 class="tabTextActive">USERS</h1>  
             </div>    
         </div>
         <button type="button" onclick="logout()" class="btn btn-outline-info btn-lg" style="align-self: flex-end; margin-top: 24px;">
@@ -27,9 +27,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-uppercase mb-25">Kullanıcıları Yönet</h5>
+                        <h5 class="card-title text-uppercase mb-25">Manage Users</h5>
                         <button type="button" onclick="onPressAdd()" class="btn btn-outline-info btn-lg">
-                          Kullanıcı Ekle
+                          Add new user
                         </button>     
                     </div>
                     <div class="table-responsive">
@@ -37,9 +37,9 @@
                           <thead>
                             <tr>
                               <th scope="col" class="border-0 text-uppercase font-medium pl-4">ID</th>
-                              <th scope="col" class="border-0 text-uppercase font-medium">KULLANICI ADI</th>
-                              <th scope="col" class="border-0 text-uppercase font-medium">ROL</th>
-                              <th scope="col" class="border-0 text-uppercase font-medium">YÖNET</th>
+                              <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
+                              <th scope="col" class="border-0 text-uppercase font-medium">ROLE</th>
+                              <th scope="col" class="border-0 text-uppercase font-medium">MANAGE</th>
                             </tr>
                           </thead>
                           <tbody id=listRows>
@@ -53,7 +53,7 @@
                               </td>                           
                               <td>
                                 <button type="button" class="btn btn-outline-info btn-lg">
-                                  Kullanıcıyı Sil
+                                  Delete
                                 </button>                               
                               </td>
                             </tr>                                                 -->
