@@ -265,7 +265,7 @@ async function deleteUser(id) {
       alert('User successfully deleted.');
       location.reload();
     } else {
-      alert('An error occured.');
+      alert("You must delete User's application first.");
     }
   }
 }
